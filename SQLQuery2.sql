@@ -60,5 +60,10 @@
   select * from  Customers
   where SubscriptionDate between '2000-01-01' and '2015-01-01'
   
-  --rename a table colum
+  --offset  and fetch
 
+  select firstName, LastName
+  from Customers
+  order by ID
+  offset 5 rows
+  fetch next 5 rows only;

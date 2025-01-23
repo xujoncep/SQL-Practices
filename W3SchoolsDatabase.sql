@@ -1,5 +1,5 @@
 
-
+use W3DB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -7,7 +7,7 @@
 /*!40101 SET NAMES utf8mb4 */;
 
 
-CREATE DATABASE w3schoolsDB
+--CREATE DATABASE W3DB
 
 --
 -- Database: `w3schools`
@@ -45,7 +45,7 @@ INSERT INTO categories (CategoryID, CategoryName, Description) VALUES
 -- Table structure for table `customers`
 --
 
-CREATE TABLE customers2 (
+CREATE TABLE customers (
   CustomerID int NOT NULL,
   CustomerName varchar(255) DEFAULT NULL,
   ContactName varchar(255) DEFAULT NULL,
@@ -59,7 +59,7 @@ CREATE TABLE customers2 (
 -- Dumping data for table `customers`
 --
 
-INSERT INTO customers2 (CustomerID, CustomerName, ContactName, Address, City, PostalCode, Country) VALUES
+INSERT INTO customers (CustomerID, CustomerName, ContactName, Address, City, PostalCode, Country) VALUES
 (1, 'Alfreds Futterkiste', 'Maria Anders', 'Obere Str. 57', 'Berlin', '12209', 'Germany'),
 (2, 'Ana Trujillo Emparedados y helados', 'Ana Trujillo', 'Avda. de la Constitución 2222', 'México D.F.', '05021', 'Mexico'),
 (3, 'Antonio Moreno Taquería', 'Antonio Moreno', 'Mataderos 2312', 'México D.F.', '05023', 'Mexico'),
@@ -1120,7 +1120,7 @@ ALTER TABLE categories
 --
 -- Indexes for table `customers`
 --
-ALTER TABLE customers2
+ALTER TABLE customers
   ADD PRIMARY KEY (CustomerID);
 
 --
@@ -1226,7 +1226,7 @@ ALTER TABLE suppliers
 -- Constraints for table `orders`
 --
 ALTER TABLE orders
-  ADD CONSTRAINT orders_ibfk_1 FOREIGN KEY (CustomerID) REFERENCES customers2 (CustomerID);
+  ADD CONSTRAINT orders_ibfk_1 FOREIGN KEY (CustomerID) REFERENCES customers (CustomerID);
 ALTER TABLE orders
   ADD CONSTRAINT orders_ibfk_2 FOREIGN KEY (EmployeeID) REFERENCES employees (EmployeeID);
 ALTER TABLE orders
